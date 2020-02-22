@@ -14,6 +14,7 @@ int main(int argc, const char **argv) {
 	}
 	fseek(fp, 0, SEEK_END);
 	unsigned long size = ftell(fp);
+	fclose(fp);
 	if(size == -1) {
 		perror("Error getting file size");
 		return 1;
@@ -35,7 +36,7 @@ int main(int argc, const char **argv) {
 		perror("Error calculating file size");
                 return 1;
 	}
-	printf("File size is: %s\n", bytes);
+	printf("%s\n", bytes);
 	free(bytes);
 	return 0;
 }
